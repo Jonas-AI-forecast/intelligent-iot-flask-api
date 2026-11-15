@@ -23,15 +23,15 @@ def get_connection(): # Opret forbindelse til MySQL-databasen
 #   return "this will break"
 
 # ---------- BASIC ROUTES ----------
-@app.route("/ping", methods=["GET"])
+@app.route("/ping", methods=["GET"])    # Endpoint til ping pong test
 def ping():
     return "pong from Intelligent IoT Flask API in Docker"
 
-@app.route("/")
+@app.route("/") # Endpoint til roden af API'et
 def index():
     return "Mini API med MySQL kører. Prøv /api/devices"
 
-@app.route("/health", methods=["GET"])
+@app.route("/health", methods=["GET"])  # Endpoint for health check
 def health():
     return jsonify({"status": "ok"}), 200
 
@@ -71,7 +71,7 @@ def get_device(device_id):
         return jsonify({"error": "Device not found"}), 404
 
 @app.route("/api/devices", methods=["POST"])
-def create_device():
+def create_device():    # Simpelt CRUD (transaction script) endpoint, ikke DDD adfærd
     """
     Opret ny IoT-enhed
     """
@@ -105,7 +105,7 @@ def create_device():
     return jsonify(new_device), 201
 
 @app.route("/api/devices/<int:device_id>", methods=["PUT"])
-def update_device(device_id):
+def update_device(device_id):   # Simpelt CRUD (transaction script) endpoint, ikke DDD adfærd
     """
     Opdatér eksisterende IoT-enhed
     """

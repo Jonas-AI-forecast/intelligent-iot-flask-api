@@ -13,7 +13,7 @@ down:
 
 # Stop og slet volumes (rydder DB)
 clean:
-	docker compose down -v
+	docker compose -f docker-compose.yml -f docker-compose.local.yml --env-file .env.local down -v
 
 # Byg og push image til ghcr.io
 push:
