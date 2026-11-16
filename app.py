@@ -25,7 +25,7 @@ def get_connection(): # Opret forbindelse til MySQL-databasen
 # ---------- BASIC ROUTES ----------
 @app.route("/ping", methods=["GET"])    # Endpoint til ping pong test
 def ping():
-    return "pong from Intelligent IoT Flask API in Docker"
+    return "pong - min ændring"
 
 @app.route("/") # Endpoint til roden af API'et
 def index():
