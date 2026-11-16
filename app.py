@@ -31,6 +31,10 @@ def ping():
 def index():
     return "Mini API med MySQL kører. Prøv /api/devices"
 
+@app.route("/hello", methods=["GET"])  # Min egen ændring: nyt endpoint til CI/CD-øvelsen
+def hello():
+    return jsonify({"message": "Hej fra mit eget endpoint", "version": 2})
+
 @app.route("/health", methods=["GET"])  # Endpoint for health check
 def health():
     return jsonify({"status": "ok"}), 200
